@@ -1,0 +1,48 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "level.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "tiles",
+        "tiles/Legacy Adventure Pack - RUINS",
+        "tiles/Legacy Adventure Pack - RUINS/Assets"
+    ],
+    "file.lastUsedOpenFilter": "Все файлы (*)",
+    "fileStates": {
+        "Assets.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 1244,
+                "y": 874
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/nikit/PycharmProjects/BigPlatformer/Tiled Projects/tiles/Legacy Adventure Pack - RUINS/Assets",
+    "map.height": 80,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 150,
+    "openFiles": [
+        "level.tmx",
+        "Assets.tsx"
+    ],
+    "project": "BigPlatformer.tiled-project",
+    "recentFiles": [
+        "Assets.tsx",
+        "level.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
