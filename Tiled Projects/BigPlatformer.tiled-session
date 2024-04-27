@@ -5,10 +5,10 @@
     },
     "activeFile": "level.tmx",
     "expandedProjectPaths": [
-        ".",
-        "tiles",
         "tiles/Legacy Adventure Pack - RUINS",
-        "tiles/Legacy Adventure Pack - RUINS/Assets"
+        "tiles/Legacy Adventure Pack - RUINS/Assets",
+        ".",
+        "tiles"
     ],
     "file.lastUsedOpenFilter": "Все файлы (*)",
     "fileStates": {
@@ -17,11 +17,11 @@
             "scaleInEditor": 1
         },
         "level.tmx": {
-            "scale": 0.25,
+            "scale": 0.33,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 1244,
-                "y": 874
+                "x": 1272.727272727273,
+                "y": 1101.5151515151515
             }
         }
     },

@@ -32,7 +32,7 @@ def load_image(file, width, height):
     return image
 
 
-def text_render(text, color = 'black'):
+def text_render(text, color='black'):
     return font.render(str(text), True, color)
 
 
@@ -67,6 +67,8 @@ class Player(pg.sprite.Sprite):
         self.velocity_y = 0
         self.gravity = get_gravity(FPS)
         self.friction = 1.2
+
+        self.speed = 4
 
         self.is_jumping = False
         self.jump_height = 32
@@ -140,13 +142,13 @@ class Player(pg.sprite.Sprite):
                 self.current_animation = self.running_animation_right
                 self.current_image = 0
                 self.timer -= self.interval
-            self.velocity_x = 4
+            self.velocity_x = self.speed
         elif keys[pg.K_a]:
             if self.current_animation != self.running_animation_left:
                 self.current_animation = self.running_animation_left
                 self.current_image = 0
                 self.timer -= self.interval
-            self.velocity_x = -4
+            self.velocity_x = -self.speed
         else:
             if self.current_animation == self.running_animation_right:
                 self.current_animation = self.idle_animation_right
@@ -166,7 +168,7 @@ class Player(pg.sprite.Sprite):
         self.rect.y += self.velocity_y
 
         for platform in platforms:
-            if platform.rect.collidepoint(self.rect.midbottom):
+            if platform.rect.collidepoint(self.rect.bottomleft[0] + 10, self.rect.bottomleft[1]) or platform.rect.collidepoint(self.rect.bottomright[0] - 10, self.rect.bottomright[1]):
                 self.velocity_y = 0
                 self.rect.bottom = platform.rect.top
                 if keys[pg.K_w] or keys[pg.K_SPACE]:
@@ -662,6 +664,12 @@ class Game:
         self.heart = pg.image.load('resourses/images/heart/heart.png').convert_alpha()
         self.heart = pg.transform.scale(self.heart, (30, 30))
 
+        self.coin_image = pg.image.load('resourses/images/menu/shop_button.png').convert_alpha()
+        self.coin_image = pg.transform.scale(self.coin_image, (30, 30))
+
+        self.bullet_image = pg.image.load('resourses/images/fireball/fireball.png').convert_alpha()
+        self.bullet_image = pg.transform.scale(self.bullet_image, (30, 30))
+
         self.menu = Menu(self)
 
         self.view_mode = self.data['settings']['view_mode']
@@ -918,8 +926,11 @@ class Game:
         for i in range(self.player.hp):
             self.screen.blit(self.heart, (SCREEN_WIDTH + (i + 1) * -30, 0))
 
-        self.screen.blit(text_render(self.player.money, 'yellow'), (0, 0))
-        self.screen.blit(text_render(self.player.fireballs_count, 'red'), (0, 30))
+        self.screen.blit(self.coin_image, (0, 0))
+        self.screen.blit(self.bullet_image, (0, 30))
+
+        self.screen.blit(text_render(self.player.money, 'yellow'), (30, 3))
+        self.screen.blit(text_render(self.player.fireballs_count, 'red'), (30, 33))
 
         if self.mode == 'winner':
             self.screen.blit(text_render('WINNER', 'yellow'), (SCREEN_WIDTH//2-50, SCREEN_HEIGHT//2-10))
